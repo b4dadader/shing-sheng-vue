@@ -20,7 +20,7 @@ const router = new VueRouter({
         {
             path:'/exhibition',
             component:WebEx,
-            meta:{title:'形聲 展覽資訊'}
+            meta:{title:'形聲 展場資訊'}
         }
     ]
 })

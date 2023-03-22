@@ -1,6 +1,6 @@
 <template>
     <!--聲音-->
-    <div id="page_listen">
+    <div class="page_listen">
         <div class="row">
             <div class="col-lg-4 col-12">
                 <h2>聲音分類：</h2>
@@ -16,46 +16,58 @@
                 </select>
             </div>
         </div>
-        <div class="row justify-content-center" id="answer">
+        <div class="row justify-content-center">
+            <ListenBtn v-for="soundObj in sounds" :key="soundObj.title" />
             <audio id="playsound" preload="none" volume="max"></audio>
         </div>
     </div>
 </template>
 
 <script>
+import ListenBtn from '@/components/ListenBtn';
 export default {
-    name:'WebListen'
+    name: 'WebListen',
+    components: { ListenBtn },
+    data() {
+        return {
+            sounds: []
+        }
+    },
+    mounted() {
+        
+    },
 
 }
 </script>
 
 <style scoped>
-#listenbutton{
+#listenbutton {
     background-color: rgb(202, 202, 202);
-    color: rgb(89,87,87);
+    color: rgb(89, 87, 87);
 }
 
 /*聲音*/
-#page_listen{
+.page_listen {
     margin-top: 50px;
     padding: 0 20%;
 }
 
-#post{
-	padding: 50px 0;
+#post {
+    padding: 50px 0;
 }
 
 
-select{
-	width: 100%;
+select {
+    width: 100%;
 }
 
-.row h5{
-	font-weight: bold;
+.row h5 {
+    font-weight: bold;
 }
-@media screen and (max-width: 400px){
-	.row h5{
-		font-size: 15px;
-	}
+
+@media screen and (max-width: 400px) {
+    .row h5 {
+        font-size: 15px;
+    }
 }
 </style>
